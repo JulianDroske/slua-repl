@@ -9,6 +9,7 @@ Many features come from Resty Repl, including:
 * Ability to view and replay history
 * Ability to see a context and source of the place in code from where repl was started
 * Tab completion
+
 Additional features (for slua 5.4 & lua with simplified linenoise):
 * Tab completion
 * View and replay history
