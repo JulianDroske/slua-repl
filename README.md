@@ -27,6 +27,11 @@ Temporarily run:
 ./run.sh
 ```
 
+Uninstallation (standalone, auto-generated) AFTER running install.sh:
+```shell
+./unist.sh
+```
+
 ## Supports
 
 * (Full support) @philanc/slua on Linux
