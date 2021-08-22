@@ -8,6 +8,12 @@ local function teardown()
 	if not ok then print(err) end
 end
 
+local function strinsert(target, str, i)
+	local left = target:sub(1, i)
+	local right = target:sub(i+1)
+	return left..str..right
+end
+
 local function puts(text)
 	if nil == text then
 		text = ''
@@ -33,12 +39,23 @@ local function putc(c)
 	io.stdout:flush()
 end
 
+local function toLeft()
+	putc('\x1b[A\n')
+end
+
+local function toCol(i)
+	toLeft()
+	putc('\x1b['..i..'C')
+end
+	
+
 local function clearline()
 	putc('\x1b[A\n\x1b[K')
 end
 
 local function restore(prompt, did)
 	if not did then did = '' end
+	toLeft()
 	io.write(prompt..did)
 	io.stdout:flush()
 	-- io.input(io.stdin)
@@ -115,7 +132,7 @@ local function readline(prompt)
 					local left = inputs:sub(1, ileft)
 					local right = inputs:sub(curr+1)
 					str = comp(cont)
-					if #str == 0 then return nil end
+					if not str or #str == 0 then return nil end
 					if #str == 1 then setcurrinput(left..str[1]..' '..right) return nil
 					else
 						print()	-- new line
@@ -162,6 +179,7 @@ local function readline(prompt)
 								if curline < #hist then
 									curline = curline + 1
 									setcurrinput(hist[curline])
+									return nil
 								elseif curline == #hist then
 									curline = #hist+1
 								elseif curline == #hist+1 then
@@ -193,9 +211,10 @@ local function readline(prompt)
 		}, function(err)
 			local wb = w:byte()
 			if wb > 31 and wb < 127 then
-				inputs = inputs..w
-				putc(w)
+				inputs = strinsert(inputs, w, curr)
+				restore(prompt, inputs)
 				curr = curr + 1
+				toCol(#prompt+curr)
 			else print('\n'..err) debug(w, prompt, inputs) end
 		end)
 		if exit then inputs=nil break end

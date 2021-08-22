@@ -3,11 +3,11 @@
 function switch(key, es, default, finally)
 	local cont = nil
 	local ok, err = pcall(function()
-		cont = es[key]()
+		cont = table.pack(es[key]())
 	end)
 	if ok then
 		-- if finally then finally() end
-		return cont
+		return table.unpack(cont)
 	end
 	if default then
 		-- if finally then finally() end

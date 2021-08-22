@@ -1,9 +1,9 @@
 -- to compat with slua 5.4
 
-unpack = table.unpack
-pack = table.pack
+if not unpack then unpack = table.unpack end
+if not pack then pack = table.pack end
 
-getfenv = function(k)
+if not getfenv then getfenv = function(k)
 	local i=1
 	while true do
 		local name, val = debug.getupvalue(k, i)
@@ -11,9 +11,9 @@ getfenv = function(k)
 			elseif not name then break end
 		i = i+1
 	end
-end
+end end
 
-setfenv = function(k, v)
+if not setfenv then setfenv = function(k, v)
 	local i=1
 	while true do
 		local name = debug.getupvalue(k, i)
@@ -21,7 +21,7 @@ setfenv = function(k, v)
 			elseif not name then break end
 		i = i+1
 	end
-end
+end end
 
-loadstring = load
+if not loadstring then loadstring = load end
 

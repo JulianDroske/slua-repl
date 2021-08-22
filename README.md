@@ -21,13 +21,22 @@ Additional features (for slua 5.4 & lua with simplified linenoise):
 ./install.sh
 ```
 
+Temporarily run:
+```shell
+./run.sh
+```
+
 ## Supports
 
 * (Full support) @philanc/slua on Linux
-* (No support for all additional features) lua on Linux
+* (Without any additional feature) lua on Linux
 * (Unknown) Other platforms
 
 ## "Bugs"
 * No multi-line editing support
 * Not support for all special keys
-* Editing after type over one line
+* Editing after typing over one line
+
+## TODO
+* Edit a super long line
+* Save and load REPL history
