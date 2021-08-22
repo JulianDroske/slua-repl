@@ -15,7 +15,7 @@ end
 
 -- help
 local help = [==[
-Usage: slua-repl [options] [script.lua [arguments]]
+Usage: lua-repl [options] [script.lua [arguments]]
 
 Options:
 -l name		load library name
