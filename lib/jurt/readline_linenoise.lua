@@ -1,3 +1,5 @@
+-- based on resty/repl/readline_stub.lua
+
 local ln = require('linenoise')
 require 'jurt._jurt'
 
