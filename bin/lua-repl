@@ -1,4 +1,4 @@
-#!/usr/bin/env slua
+#!/usr/bin/env lua
 
 local loadstring = loadstring or load -- for lua 5.2 compat
 
