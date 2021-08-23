@@ -23,6 +23,7 @@
 -- OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 -- SOFTWARE.
 
+
 local readline_utils = require 'resty.repl.readline_utils'
 
 local no_readline_fallback = function()

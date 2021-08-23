@@ -12,7 +12,8 @@ Many features come from Resty Repl, including:
 
 Additional features (for slua 5.4 & lua with simplified linenoise):
 * Tab completion
-* View and replay history
+* Single line editing
+* Save, load, view and replay history
 * Portable REPL
 * Add support for Lua 5.2+
 
@@ -32,17 +33,13 @@ Uninstallation (standalone, auto-generated) AFTER running install.sh:
 ./unist.sh
 ```
 
-## Supports
+## Compatibility
 
-* (Full support) @philanc/slua on Linux
-* (Without any additional feature) lua on Linux
+* (Full) @philanc/slua on Linux
+* (No additional feature) lua on Linux
 * (Unknown) Other platforms
 
 ## "Bugs"
-* No multi-line editing support
-* Not support for all special keys
-* Editing after typing over one line
-
-## TODO
-* Edit a super long line
-* Save and load REPL history
+* No support with multi-line editing
+* No support with many special keys
+* No support for lua-linenoise
