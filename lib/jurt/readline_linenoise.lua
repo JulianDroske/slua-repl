@@ -120,7 +120,7 @@ local function readline(prompt)
 	local curr = 0
 	local curline = #ln.gethistory()+1	-- now editing
 	local curbackup = ''
-	local valid <const> = termX - #prompt - 1 - 1	-- lua feature, cursor itself
+	local valid = termX - #prompt - 1 - 1	-- lua feature, cursor itself
 	local disoff = 1	-- display offset
 	local function setcurrinput(str, pos)	-- str, curr(+1)
 		pos = pos or #str
